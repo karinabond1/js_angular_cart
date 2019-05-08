@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let item of listForCart;let i = index;">
+        <button (click)="remove($event)">-</button>
+        {{item.name}} {{i}}
+      </li>
+</ul>

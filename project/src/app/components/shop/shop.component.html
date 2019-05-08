@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of listForShop;let i = index;
+              ">
+    <button (click)="add(i)">+</button>
+    {{item.name}} - ${{item.price}}
+  </li>
+</ul>
