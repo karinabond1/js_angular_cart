@@ -14,7 +14,20 @@ export class ShopComponent implements OnInit {
   }
 
   add(index){
-    this.ss.listForCart.push(this.ss.listForShop[index]);
+    this.ss.listForCart.forEach((product) => {
+      if(/*product.id != index*/ this.ss.listForCart.indexOf(this.ss.listForShop[index])<0){
+        this.ss.listForShop[index].count++;
+        this.ss.listForCart.push(this.ss.listForShop[index]);
+        this.ss.products.push(this.ss.listForShop[index]);
+        //this.ss.listForCart[index].count++;
+      }else if(index === product.id){        
+        product.count++;
+      }
+      localStorage.shop = JSON.stringify(this.ss.listForCart);
+    })
+    
+    /*this.ss.listForCart.push(this.ss.listForShop[index]);
+    this.ss.listForCart[index].count++;*/
   }
 
   get listForShop(){

@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule} from '@angular/platform-browser';
+import { NgModule , OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,4 +30,18 @@ import { CartComponent } from './components/cart/cart.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit{ 
+   
+  constructor(private ss: ShareService) { }
+  
+  ngOnInit() {
+  }
+
+  get allId(){
+    let allPricee = 0;
+    this.ss.products.forEach(function(element) {
+      allPricee++;
+    })
+    return allPricee;
+  } 
+}

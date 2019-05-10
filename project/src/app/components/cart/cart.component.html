@@ -1,6 +1,10 @@
 <ul>
-    <li *ngFor="let item of listForCart;let i = index;">
-        <button (click)="remove($event)">-</button>
-        {{item.name}} {{i}}
-      </li>
+  <li *ngFor="let item of listForCart;let i = index;"
+  >
+    <span  *ngIf="item.count>0">
+      <button (click)="remove(i)">-</button>
+      {{item.name}} - ${{item.price}} - {{item.count}}
+    </span> 
+</li>
+Price: {{allPrice}}
 </ul>
