@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ShareService {
-  list = [
+  /*list = [
     'First',
     'Second'
-  ];
+  ];*/
   
 
   listForShop = [
@@ -53,7 +53,7 @@ export class ShareService {
     price: 600,
     count: 0
   }];
-
+  list = JSON.parse(localStorage.list || JSON.stringify(['First','Second']));
   products = JSON.parse(localStorage.shop || JSON.stringify(this.listForCart));
   constructor() {
     

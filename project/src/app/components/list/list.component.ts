@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   add(){
     this.list.push(this.new_item);
     //this.todo.push(this.new_item);
+    localStorage.list = JSON.stringify(this.list);
     this.new_item = "";
     //this.todo
   }
